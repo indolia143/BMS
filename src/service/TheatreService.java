@@ -22,6 +22,7 @@ public class TheatreService {
 
     public String addThreatre(Theatre theatre){
         theatreMap.put(theatre.getId(),theatre);
+        String theatreString = null;
         if(theatreCityMap.containsKey(theatre.getCityName())){
             theatreCityMap.get(theatre.getCityName()).add(theatre);
         }else{
@@ -29,8 +30,9 @@ public class TheatreService {
             theatres.add(theatre);
             theatreCityMap.put(theatre.getCityName(), theatres);
         }
-
-        return "success: "+ theatre.toString();
+        theatreString = theatreString+ "success";
+        theatreString = theatreString +theatre;
+        return theatreString;
     }
 
     public Theatre getTheatreByTheatreId(int theatreId){
