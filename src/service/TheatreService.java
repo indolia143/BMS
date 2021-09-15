@@ -4,10 +4,7 @@ import model.Movie;
 import model.Show;
 import model.Theatre;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class TheatreService {
     Map<Integer, Theatre> theatreMap = new HashMap<>();
@@ -33,19 +30,25 @@ public class TheatreService {
         theatreString = theatreString+ "success";
         theatreString = theatreString +theatre;
         return theatreString;
+//        return "success" + theatre.toString();
     }
 
     public Theatre getTheatreByTheatreId(int theatreId){
         if(!theatreMap.containsKey(theatreId)){
             return null;
-        }
+        }else
         return theatreMap.get(theatreId);
     }
 
     public Set<Theatre> getTheatreByCityName(String cityName){
+        List<Integer> integerList = new ArrayList<>();
+        integerList.addAll(Arrays.asList(1,2,3,4,20));
         if(!theatreCityMap.containsKey(cityName)){
             return  null;
         }
+        if(integerList.contains(3))
+            return theatreCityMap.get(cityName);
+        else
         return theatreCityMap.get(cityName);
     }
 
